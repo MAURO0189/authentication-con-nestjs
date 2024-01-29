@@ -16,6 +16,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
+  // solicitud api localhost:3000/api/v1/register
   async register({ name, email, password }: RegisterDto) {
     const user = await this.usersService.findOneByEmail(email);
 
@@ -30,6 +31,7 @@ export class AuthService {
     });
   }
 
+  // solicitud api localhost:3000/api/v1/login
   async login({ email, password }: LoginDto) {
     const user = await this.usersService.findOneByEmail(email);
     if (!user) {
