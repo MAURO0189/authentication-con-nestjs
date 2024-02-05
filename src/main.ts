@@ -15,6 +15,11 @@ async function bootstrap() {
     }),
   );
 
+  app.enableCors({
+    origin: process.env.NODE_ENV === '*',
+    methods: ['GET', 'POST'],
+  });
+
   await app.listen(3000);
 }
 bootstrap();
