@@ -8,27 +8,20 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class User {
-  @PrimaryGeneratedColumn({ type: 'bigint', unsigned: true })
+export class Points {
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Index({ unique: true })
-<<<<<<< HEAD
-  @Column({ unique: true, nullable: false })
-  email: string;
+  @Column()
+  documentNumber: string;
 
   @Index({ unique: true })
-  @Column({ unique: true, nullable: false })
-  password: string;
-
-=======
   @Column()
-  email: string;
+  plateNumber: string;
 
->>>>>>> 547c72267f7da135033b6cdf37183b78d0774f41
-  @Index()
-  @Column({ nullable: true })
-  uuid: string | null;
+  @Column('int')
+  totalScore: number;
 
   @CreateDateColumn({
     precision: 0,
@@ -44,8 +37,4 @@ export class User {
     onUpdate: 'CURRENT_TIMESTAMP',
   })
   lastUpdate: Date;
-<<<<<<< HEAD
-  firebaseUuid: string;
-=======
->>>>>>> 547c72267f7da135033b6cdf37183b78d0774f41
 }
