@@ -12,6 +12,9 @@ export class User {
   @PrimaryGeneratedColumn({ type: 'bigint', unsigned: true })
   id: number;
 
+  @Column({ nullable: true })
+  name: string;
+
   @Index({ unique: true })
   @Column({ unique: true, nullable: false })
   email: string;
