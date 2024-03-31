@@ -27,6 +27,9 @@ export class User {
   @Column({ nullable: true })
   uuid: string | null;
 
+  @Column({ default: 'user' })
+  role: string;
+
   @CreateDateColumn({
     precision: 0,
     type: 'timestamp',
