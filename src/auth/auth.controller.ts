@@ -39,7 +39,7 @@ export class AuthController {
   //   return this.authService.profile(req.user);
   // }
 
-  @Get('profile2')
+  @Get('profile')
   @Auth(Role.ADMIN)
   profile(@Req() req: RequestWithUser) {
     return this.authService.profile(req.user);
