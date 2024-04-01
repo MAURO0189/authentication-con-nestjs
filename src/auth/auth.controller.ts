@@ -3,9 +3,6 @@ import { AuthService } from './auth.service';
 import { LoginDto } from 'src/auth/dto/login.dto';
 import { RegisterDto } from 'src/auth/dto/register.dto';
 import { Request } from 'express';
-import { AuthGuard } from './guard/auth.guard';
-import { Roles } from './decorators/roles.decorator';
-import { RolesGuard } from './guard/roles.guard';
 import { Role } from './enums/rol.enum';
 import { Auth } from './decorators/auth.decorator';
 
