@@ -52,4 +52,14 @@ export class AuthService {
       email,
     };
   }
+
+  async profile({ email, role }: { email: string; role: string }) {
+    if (role !== 'admin') {
+      throw new UnauthorizedException(
+        'You are not authorized to access this resource',
+      );
+    }
+
+    return await this.usersService.findOneByEmail(email);
+  }
 }
