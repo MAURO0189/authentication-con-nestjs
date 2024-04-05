@@ -6,6 +6,7 @@ import {
 import { LoginDto } from 'src/auth/dto/login.dto';
 import { UsersService } from './users/users.service';
 import * as bcryptjs from 'bcryptjs';
+import { v4 as uuidv4 } from 'uuid';
 import { JwtService } from '@nestjs/jwt';
 import { RegisterDto } from './dto/register.dto';
 
@@ -24,10 +25,13 @@ export class AuthService {
       throw new BadRequestException('User already exists');
     }
 
+    const uuid = uuidv4();
+
     return await this.usersService.create({
       name,
       email,
       password: await bcryptjs.hash(password, 10),
+      uuid: uuid,
     });
   }
 
